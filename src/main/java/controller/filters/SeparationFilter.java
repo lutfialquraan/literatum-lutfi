@@ -1,6 +1,7 @@
 package controller.filters;
 
 import controller.FrontController;
+
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
@@ -22,8 +23,8 @@ public class SeparationFilter implements Filter {
         if (url.endsWith("css") || url.endsWith("jsp") || url.endsWith("js") || url.endsWith("html")) {
             return;
         }
-
-
+        String action = ((HttpServletRequest) servletRequest).getRequestURI();
+        servletRequest.setAttribute("action", action);
         FrontController.getRequestDispatcher(config.getServletContext()).forward(servletRequest, servletResponse);
 
 

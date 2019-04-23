@@ -1,5 +1,6 @@
 package controller;
 
+import controller.actions.FindAction;
 import controller.actions.IAction;
 import controller.actions.WelcomeAction;
 
@@ -12,14 +13,11 @@ import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
-
-@WebServlet (name = "/my", urlPatterns = {"/home"})
+@WebServlet(name = "/my", urlPatterns = {"/home"})
 public class FrontController extends HttpServlet {
 
+
     private static final String PATH = "/home";
-
-
-
 
 
     public static RequestDispatcher getRequestDispatcher(ServletContext servletContext) {
@@ -30,12 +28,10 @@ public class FrontController extends HttpServlet {
     public void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 
         try {
+            IAction action = FindAction.findAction((String) req.getAttribute("action"));
+            action.execute(req, res);
 
-            Class<?> welcome = Class.forName("controller.actions.WelcomeAction");
-            Constructor welcomeCons = welcome.getConstructor();
-            IAction welcomeA = (IAction) welcomeCons.newInstance();
-            welcomeA.execute(req,res);
-        } catch (ClassNotFoundException exp){
+        } catch (ClassNotFoundException exp) {
             exp.printStackTrace();
         } catch (NoSuchMethodException e) {
             e.printStackTrace();

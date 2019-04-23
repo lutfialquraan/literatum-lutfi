@@ -13,9 +13,9 @@ import java.io.StringWriter;
 
 
 
-public final class TrasnformationUtil {
+public final class TransformationUtil {
 
-    private TrasnformationUtil() { }
+    private TransformationUtil() { }
 
     public static String getXml(String xmlPath, String xslPath) {
         try {
@@ -31,8 +31,8 @@ public final class TrasnformationUtil {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         StringWriter stringWriter = new StringWriter();
 
-        File xml = new File(Constants.RELATIVE_PATH + xmlPath);
-        File xsl = new File(Constants.RELATIVE_PATH + xslPath);
+        File xml = new File(xmlPath);
+        File xsl = new File(xslPath);
 
         DocumentBuilder builder = factory.newDocumentBuilder();
         document = builder.parse(xml);

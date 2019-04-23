@@ -2,7 +2,7 @@
 
 <actions>
     <action name="showHome"  url="/home" class="controller.actions.WelcomeAction" />
-    <action name="showlutfi"  url="/home" class="controller.actions.WelcomeAction" />
+    <action name="showlutfi"  url="/lutfi" class="controller.actions.WelcomeAction" />
     <action name="showabood"  url="/home" class="controller.actions.WelcomeAction" />
     <action name="lutfi"  url="/home" class="controller.actions.WelcomeAction" />
     <action name="abood"  url="/home" class="controller.actions.WelcomeAction" />
