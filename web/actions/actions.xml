@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<actions>
+    <action name="showHome"  url="/home" class="controller.actions.WelcomeAction" />
+    <action name="showlutfi"  url="/home" class="controller.actions.WelcomeAction" />
+    <action name="showabood"  url="/home" class="controller.actions.WelcomeAction" />
+    <action name="lutfi"  url="/home" class="controller.actions.WelcomeAction" />
+    <action name="abood"  url="/home" class="controller.actions.WelcomeAction" />
+<!--    <action>-->
+<!--        <code>132</code>-->
+<!--    </action>-->
+</actions>

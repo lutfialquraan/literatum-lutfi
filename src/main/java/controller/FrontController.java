@@ -1,23 +1,50 @@
 package controller;
 
 import controller.actions.IAction;
+import controller.actions.WelcomeAction;
 
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
+import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 
 
-@WebServlet (name = "/my")
+@WebServlet (name = "/my", urlPatterns = {"/home"})
 public class FrontController extends HttpServlet {
 
+    private static final String PATH = "/home";
+
+
+
+
+
+    public static RequestDispatcher getRequestDispatcher(ServletContext servletContext) {
+        return servletContext.getRequestDispatcher(PATH);
+    }
 
     @Override
-    public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
+    public void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 
+        try {
 
-
+            Class<?> welcome = Class.forName("controller.actions.WelcomeAction");
+            Constructor welcomeCons = welcome.getConstructor();
+            IAction welcomeA = (IAction) welcomeCons.newInstance();
+            welcomeA.execute(req,res);
+        } catch (ClassNotFoundException exp){
+            exp.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
     }
 }
