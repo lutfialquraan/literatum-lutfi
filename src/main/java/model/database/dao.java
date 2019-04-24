@@ -9,18 +9,19 @@ public class dao {
 
 
 
-    ConncetionPool conncetionPool;
+    ConnectionPool connectionPool;
 
     public dao() {
-        conncetionPool = ConncetionPool.getInstance();
+        connectionPool = ConnectionPool.getInstance();
     }
 
 
 
-        public void insertQuery (AbstractBaseUser user) throws SQLException {
+        public void insertQuery (AbstractBaseUser user) throws SQLException, ClassNotFoundException {
+
 
         String string = "insert into user_table (first_name,last_name,user_name,email,password,role) values (?,?,?,?,?,?);";
-        PreparedStatement preparedStatement = conncetionPool.getConnection().prepareStatement(string);
+        PreparedStatement preparedStatement = connectionPool.getConnection().prepareStatement(string);
         preparedStatement.setString(1,user.getFirstName());
         preparedStatement.setString(2,user.getLastName());
         preparedStatement.setString(3,user.getUserName());

@@ -18,7 +18,7 @@ import java.util.List;
 
 public class Admin implements IAction {
     @Override
-    public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+    public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException, ClassNotFoundException {
 
 
         String method = request.getMethod();
@@ -36,9 +36,9 @@ public class Admin implements IAction {
 
     }
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException, ClassNotFoundException {
 
-        AbstractBaseUser admin = new model.Admin("lut","om","ok","21","2");
+        AbstractBaseUser admin = new model.Admin("lut","om","ooook","2551","2");
         dao dao1 = new dao();
         dao1.insertQuery(admin);
 

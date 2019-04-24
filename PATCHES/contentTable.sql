@@ -13,6 +13,4 @@ alter table conetnt_table
 	add constraint conetnt_table_pk
 		primary key (doi);
 
-alter table user_table
-	add role int;
 

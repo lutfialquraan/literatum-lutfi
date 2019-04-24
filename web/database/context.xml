@@ -1,10 +1,10 @@
 <Context>
 
-    <Resource name="connectionPool"
+    <Resource name="jdbc/connectionPool"
               auth="Container" type="javax.sql.DataSource"
               maxActive="20" maxIdle="5" maxWait="10000"
               username="postgres" password="12345678"
               driverClassName="org.postgresql.Driver"
-              url="jdbc:mysql://localhost:5432/postgres"/>
+              url="jdbc:postgresql://localhost:5432/postgres"/>
 
 </Context>

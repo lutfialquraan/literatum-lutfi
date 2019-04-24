@@ -7,6 +7,10 @@ create table user_table
 	password varchar not null
 );
 
+
+alter table user_table
+	add role int;
+
 create unique index user_table_email_uindex
 	on user_table (email);
 
