@@ -4,6 +4,7 @@ import controller.FrontController;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class SeparationFilter implements Filter {
@@ -19,13 +20,17 @@ public class SeparationFilter implements Filter {
 
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
 
-        String url = ((HttpServletRequest) servletRequest).getRequestURI();
+        HttpServletRequest request = (HttpServletRequest) servletRequest;
+        HttpServletResponse response = (HttpServletResponse) servletResponse;
+
+        String url = request.getRequestURI();
         if (url.endsWith("css") || url.endsWith("jsp") || url.endsWith("js") || url.endsWith("html")) {
             return;
         }
-        String action = ((HttpServletRequest) servletRequest).getRequestURI();
-        servletRequest.setAttribute("action", action);
-        FrontController.getRequestDispatcher(config.getServletContext()).forward(servletRequest, servletResponse);
+        String action = request.getRequestURI();
+        request.setAttribute("action", action);
+
+        FrontController.getRequestDispatcher(config.getServletContext()).forward(request, response);
 
 
     }

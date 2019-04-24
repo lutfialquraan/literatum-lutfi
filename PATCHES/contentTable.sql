@@ -1,15 +1,18 @@
-create table content
+create table conetnt_table
 (
-	pathForXml varchar not null,
-	pathForPdf varchar,
-	pathForHtml varchar,
-	contentId serial
+	doi varchar not null,
+	path_for_xml varchar not null,
+	path_for_html varchar,
+	path_for_pdf varchar
 );
 
-create unique index content_contentId_uindex
-	on content (contentId);
+create unique index conetnt_table_doi_uindex
+	on conetnt_table (doi);
 
-alter table content
-	add constraint content_pk
-		primary key (contentId);
+alter table conetnt_table
+	add constraint conetnt_table_pk
+		primary key (doi);
+
+alter table user_table
+	add role int;
 

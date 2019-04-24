@@ -10,11 +10,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.lang.reflect.Constructor;
+
 import java.lang.reflect.InvocationTargetException;
+import java.sql.SQLException;
+
 
 @WebServlet(name = "/my", urlPatterns = {"/home"})
 public class FrontController extends HttpServlet {
+
 
 
     private static final String PATH = "/home";
@@ -40,6 +43,8 @@ public class FrontController extends HttpServlet {
         } catch (InstantiationException e) {
             e.printStackTrace();
         } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
