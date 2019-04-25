@@ -1,27 +1,20 @@
 <%--
   Created by IntelliJ IDEA.
   User: lquran
-  Date: 4/24/19
-  Time: 3:16 PM
+  Date: 4/25/19
+  Time: 11:34 AM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>wat</title>
+    <title>FileDone</title>
 </head>
 <body>
 
-
-<form method="post" action="/uploadFile" enctype="multipart/form-data">
-
-    <input type="file" name="file_name"/>
-    <button type="submit">upload</button>
-
+<h1>File is Submitted</h1>
+<form action="/unzip" method="post">
+    <button type="submit">Unzip</button>
 </form>
-
-
-
-
 </body>
 </html>

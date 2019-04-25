@@ -9,6 +9,6 @@ import java.sql.SQLException;
 
 public interface IAction {
 
-    void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException, ClassNotFoundException;
+    void execute(HttpServletRequest request, HttpServletResponse response) throws Exception;
 
 }
