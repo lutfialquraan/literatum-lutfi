@@ -4,7 +4,7 @@
     <action name="showHome"  url="/welcome" class="controller.actions.WelcomeAction" />
     <action name="showlutfi"  url="/uploadFile" class="controller.wat.UploadAdmin" />
     <action name="showabood"  url="/" class="controller.actions.WelcomeAction" />
-    <action name="lutfi"  url="/unzip" class="controller.wat.UnzipAdmin" />
+    <action name="lutfi"  url="/unzip" class="controller.wat.ProcessingAction" />
     <action name="abood"  url="/home" class="controller.actions.WelcomeAction" />
 <!--    <action>-->
 <!--        <code>132</code>-->

@@ -50,8 +50,8 @@ public class UploadAdmin implements IAction {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
         writeFileWithException(request);
-        UnzipAdmin unzipAdmin = new UnzipAdmin();
-        unzipAdmin.execute(request,response);
+        ProcessingAction processingAction = new ProcessingAction();
+        processingAction.doGet(request,response);
 
 
     }
