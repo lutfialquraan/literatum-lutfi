@@ -8,11 +8,10 @@ import java.sql.SQLException;
 
 public class ConnectionPool {
 
-
     private static ConnectionPool pool;
     private ConnectionPool() {}
 
-    public static ConnectionPool getInstance(){
+    public synchronized static ConnectionPool getInstance(){
         if (pool==null)
             pool= new ConnectionPool();
         return pool;

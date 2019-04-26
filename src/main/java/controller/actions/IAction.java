@@ -1,14 +1,22 @@
 package controller.actions;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.sql.SQLException;
 
 public interface IAction {
+     default void execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+         String method = request.getMethod();
+         switch (method) {
+             case "POST":
+                 doPost(request, response);
+                 break;
+             case "GET":
+                 doGet(request, response);
+                 break;
+         }
+     }
+    void doPost(HttpServletRequest request, HttpServletResponse response) throws Exception;
 
-    void execute(HttpServletRequest request, HttpServletResponse response) throws Exception;
+    void doGet(HttpServletRequest request, HttpServletResponse response) throws Exception;
 
-}
+    }

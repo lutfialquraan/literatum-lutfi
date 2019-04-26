@@ -7,7 +7,7 @@
     
     <filter>
         <filter-name>sperateion</filter-name>
-        <filter-class>controller.filters.SeparationFilter</filter-class>
+        <filter-class>controller.filters.ForwardingActionsFilter</filter-class>
     </filter>
 
 
