@@ -12,4 +12,6 @@ public class Admin extends AbstractBaseUser {
         super(firstName, lastName, userName, email, password, Role.ADMIN);
     }
 
+
+
 }

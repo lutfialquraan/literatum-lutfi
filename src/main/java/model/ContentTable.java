@@ -1,13 +1,13 @@
 package model;
 
-public class ConentTable {
+public class ContentTable {
 
     private String pathForPdf;
     private String pathForHtml;
     private String pathForXml;
     private String theDoi;
 
-    public ConentTable(String pathForPdf, String pathForHtml, String pathForXml, String theDoi) {
+    public ContentTable(String pathForPdf, String pathForHtml, String pathForXml, String theDoi) {
         this.pathForPdf = pathForPdf;
         this.pathForHtml = pathForHtml;
         this.pathForXml = pathForXml;
@@ -44,5 +44,15 @@ public class ConentTable {
 
     public void setTheDoi(String theDoi) {
         this.theDoi = theDoi;
+    }
+
+    @Override
+    public String toString() {
+        return "ContentTable{" +
+                "pathForPdf='" + pathForPdf + '\'' +
+                ", pathForHtml='" + pathForHtml + '\'' +
+                ", pathForXml='" + pathForXml + '\'' +
+                ", theDoi='" + theDoi + '\'' +
+                '}';
     }
 }

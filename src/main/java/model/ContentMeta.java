@@ -5,13 +5,13 @@ public class ContentMeta {
     private String theDoi;
     private String subject;
     private String title;
-    private String autor;
+    private String author;
 
-    public ContentMeta(String theDoi, String subject, String title, String autor) {
+    public ContentMeta(String theDoi, String subject, String title, String author) {
         this.theDoi = theDoi;
         this.subject = subject;
         this.title = title;
-        this.autor = autor;
+        this.author = author;
     }
 
 
@@ -39,11 +39,21 @@ public class ContentMeta {
         this.title = title;
     }
 
-    public String getAutor() {
-        return autor;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setAutor(String autor) {
-        this.autor = autor;
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    @Override
+    public String toString() {
+        return "ContentMeta{" +
+                "theDoi='" + theDoi + '\'' +
+                ", subject='" + subject + '\'' +
+                ", title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                '}';
     }
 }

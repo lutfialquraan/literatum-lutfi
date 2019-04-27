@@ -1,6 +1,6 @@
 package model.database;
 
-import model.ConentTable;
+import model.ContentTable;
 import model.ContentMeta;
 import model.UnprocessedFile;
 
@@ -57,21 +57,20 @@ public class DaoAbstractClass {
         preparedStatement.setString(1,contentMeta.getTheDoi());
         preparedStatement.setString(2,contentMeta.getSubject());
         preparedStatement.setString(3,contentMeta.getTitle());
-        preparedStatement.setString(4,contentMeta.getAutor());
+        preparedStatement.setString(4,contentMeta.getAuthor());
         preparedStatement.execute();
     }
 
 
-    public void insertContent (ConentTable conentTable) throws SQLException, ClassNotFoundException {
+    public void insertContent (ContentTable contentTable) throws SQLException, ClassNotFoundException {
 
 
         String string = "insert into conetnt_table (doi, path_for_xml, path_for_html, path_for_pdf) values (?,?,?,?)  ";
         PreparedStatement preparedStatement = connectionPool.getConnection().prepareStatement(string);
-        preparedStatement.setString(1,conentTable.getTheDoi());
-        preparedStatement.setString(2,conentTable.getPathForXml());
-        preparedStatement.setString(3,conentTable.getPathForHtml());
-        preparedStatement.setString(4,conentTable.getPathForPdf());
-
+        preparedStatement.setString(1, contentTable.getTheDoi());
+        preparedStatement.setString(2, contentTable.getPathForXml());
+        preparedStatement.setString(3, contentTable.getPathForHtml());
+        preparedStatement.setString(4, contentTable.getPathForPdf());
         preparedStatement.execute();
     }
 

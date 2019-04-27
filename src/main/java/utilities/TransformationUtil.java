@@ -1,5 +1,7 @@
 package utilities;
+
 import org.w3c.dom.Document;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.Transformer;
@@ -10,12 +12,10 @@ import javax.xml.transform.stream.StreamSource;
 import java.io.File;
 import java.io.StringWriter;
 
-
-
-
 public final class TransformationUtil {
 
-    private TransformationUtil() { }
+    private TransformationUtil() {
+    }
 
     public static String getXml(String xmlPath, String xslPath) {
         try {
@@ -46,7 +46,4 @@ public final class TransformationUtil {
         transformer.transform(source, result);
         return stringWriter.toString();
     }
-
-
-
 }

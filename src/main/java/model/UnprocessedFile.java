@@ -44,4 +44,13 @@ public class UnprocessedFile {
     public void setFileId(int fileId) {
         this.fileId = fileId;
     }
+
+    @Override
+    public String toString() {
+        return "UnprocessedFile{" +
+                "filePath='" + filePath + '\'' +
+                ", status=" + status +
+                ", fileId=" + fileId +
+                '}';
+    }
 }

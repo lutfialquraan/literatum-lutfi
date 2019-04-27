@@ -9,12 +9,7 @@ import java.util.zip.ZipInputStream;
 
 public class UnZip {
 
-
-
-
-
-    public static void unZip (String zippedFile,String outputFolder)
-    {
+    public static void unZip(String zippedFile, String outputFolder) {
 
         //get the zip file content
         ZipInputStream zis;
@@ -52,11 +47,5 @@ public class UnZip {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
-
-
     }
-
-
 }

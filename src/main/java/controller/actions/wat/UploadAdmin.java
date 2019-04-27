@@ -2,7 +2,8 @@ package controller.actions.wat;
 
 import controller.actions.IAction;
 import controller.actions.backstage.ProcessingAction;
-import model.database.DaoAbstractClass;
+import model.database.DAO;
+import model.database.UnprocessedFileDAO;
 import model.enums.Status;
 import model.UnprocessedFile;
 import org.apache.commons.fileupload.FileItem;
@@ -49,9 +50,9 @@ public class UploadAdmin implements IAction {
 
         UnprocessedFile unprocessedFile = new UnprocessedFile(fileName, Status.UNPROCESSED);
 
-        DaoAbstractClass daoAbstractClass = new DaoAbstractClass();
+        DAO unprocessedFileDAO = new UnprocessedFileDAO();
 
-        daoAbstractClass.insertFile(unprocessedFile);
+        unprocessedFileDAO.insert(unprocessedFile);
 
 
         System.out.println(ServletFileUpload.isMultipartContent(req));

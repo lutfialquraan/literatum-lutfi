@@ -1,6 +1,5 @@
 package model.database;
 
-import java.sql.SQLException;
 import java.util.List;
 
 public abstract class DAO {
@@ -10,9 +9,9 @@ public abstract class DAO {
         connectionPool = ConnectionPool.getInstance();
     }
 
-    abstract void insert (Object object);
-    abstract void delete (Object object) throws SQLException, ClassNotFoundException;
-    abstract void update (Object object);
-    abstract List<Object> selectAll();
-    abstract Object select();
+    abstract public void insert (Object object);
+    abstract public void delete (Object object);
+    abstract public void update (Object object);
+    abstract public List<Object> selectAll();
+    abstract public Object select(Object object);
 }
