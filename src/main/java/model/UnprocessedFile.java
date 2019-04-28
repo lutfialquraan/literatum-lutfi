@@ -3,12 +3,9 @@ package model;
 import model.enums.Status;
 
 public class UnprocessedFile {
-
-
     private String filePath;
     private Status status;
     private int fileId;
-
 
     public UnprocessedFile(String filePath, Status status, int fileId) {
         this.filePath = filePath;

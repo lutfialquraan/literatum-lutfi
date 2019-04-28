@@ -36,7 +36,6 @@ public final class TransformationUtil {
 
         DocumentBuilder builder = factory.newDocumentBuilder();
         document = builder.parse(xml);
-
         // Use a Transformer for output
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
         StreamSource style = new StreamSource(xsl);

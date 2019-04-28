@@ -1,15 +1,12 @@
 package controller.actions;
 
 import utilities.TransformationUtil;
-
 import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 
 public final class FindAction {
 
     private static HashMap <String,String> urlToClassMap;
-
     private FindAction(){}
 
     static {
@@ -24,7 +21,6 @@ public final class FindAction {
         String actionUrl;
         String actionClass;
         String [] lines = convertedXml.split(System.lineSeparator());
-
         for (int i = 1; i<lines.length;i++)
         {
             String [] line = lines[i].trim().split(" ");
@@ -32,10 +28,7 @@ public final class FindAction {
             actionClass=line[1];
             urlToClassMap.put(actionUrl,actionClass);
         }
-
-
     }
-
 
     public static IAction getAction(String requestURL) {
 
@@ -43,21 +36,11 @@ public final class FindAction {
             Class<?> action = Class.forName(urlToClassMap.get(requestURL));
             Constructor actionConstructor = action.getConstructor();
             return (IAction) actionConstructor.newInstance();
-
         }
-
         catch (Exception e)
         {
             e.printStackTrace();
         }
-
         return null;
     }
-
-
-
-
-
-
-
 }

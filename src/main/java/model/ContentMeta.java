@@ -14,7 +14,6 @@ public class ContentMeta {
         this.author = author;
     }
 
-
     public String getTheDoi() {
         return theDoi;
     }
