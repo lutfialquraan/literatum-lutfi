@@ -26,7 +26,8 @@ public class FrontController extends HttpServlet {
     public void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 
         try {
-            IAction action = FindAction.getAction((String) req.getAttribute("action"));
+            String actionUrl = (String) req.getAttribute("action");
+            IAction action = FindAction.getAction(actionUrl);
             action.execute(req,res);
         }
 
