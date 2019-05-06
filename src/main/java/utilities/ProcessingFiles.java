@@ -93,13 +93,13 @@ public class ProcessingFiles implements Runnable {
 
         copyFiles(files);
 
-        String contentMeta = TransformationUtil.getXml(DirectoryPaths.CONTENTS_FILE_PATH+files[0].getName(),XslPaths.META_XSL_PATH);
+        String contentMeta = TransformationUtil.getXml(DirectoryPaths.CONTENTS_FILE_PATH+files[0].getName(), WebFilesPaths.META_XSL_PATH);
 
         ContentMeta contentMeta1 = getContentMetaObject(contentMeta);
         DAO contentDAO = new ContentMetaDAO();
         contentDAO.insert(contentMeta1);
 
-        String contentHtml = TransformationUtil.getXml(DirectoryPaths.CONTENTS_FILE_PATH+files[0].getName(),XslPaths.HTML_XSL_PATH);
+        String contentHtml = TransformationUtil.getXml(DirectoryPaths.CONTENTS_FILE_PATH+files[0].getName(), WebFilesPaths.HTML_XSL_PATH);
         File file1 = new File(DirectoryPaths.CONTENTS_FILE_PATH+contentMeta1.getTheDoi()+".html");
         try {
             PrintWriter printWriter = new PrintWriter(file1);

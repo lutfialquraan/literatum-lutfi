@@ -8,4 +8,7 @@
     <action name="abood"  url="/logout" class="controller.actions.LogoutAction" />
     <action name="signup"  url="/signup" class="controller.actions.SignUpAction" />
     <action name="/login"  url="/login" class="controller.actions.LogInAction" />
+    <action name="/admin/add-user"  url="/admin/add-user" class="controller.actions.wat.AddUserAction" />
+    <action name="/admin/delete-user"  url="/admin/delete-user" class="controller.actions.wat.DeleteUserAction" />
+    <action name="/admin/list-users"  url="/admin/list-users" class="controller.actions.wat.ListUsersAction" />
 </actions>

@@ -1,6 +1,6 @@
 package controller;
 
-import controller.actions.FindAction;
+import utilities.FindAction;
 import controller.actions.IAction;
 
 import javax.servlet.*;

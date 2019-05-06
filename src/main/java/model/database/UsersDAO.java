@@ -127,8 +127,6 @@ public class UsersDAO extends DAO {
                     case USER:
                         baseUser = new BasicUser(first_name, last_name, user_name, email, password);
                         break;
-                    default:
-                        baseUser = new BasicUser(first_name, last_name, user_name, email, password);
                 }
                 users.add(baseUser);
             }
