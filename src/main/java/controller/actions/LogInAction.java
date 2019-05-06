@@ -8,6 +8,7 @@ import model.users.AbstractBaseUser;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class LogInAction implements IAction {
     @Override
@@ -23,7 +24,9 @@ public class LogInAction implements IAction {
 
         if (flag)
         {
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher("jsp/wat.jsp");
+            HttpSession session = request.getSession();
+            session.setAttribute("name",baseUser.getFirstName());
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("jsp/logged-in.jsp");
             requestDispatcher.forward(request,response);
         }
 

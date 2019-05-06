@@ -1,0 +1,144 @@
+<!ELEMENT article (front|body|back)*>
+        <!ATTLIST article
+                article-type CDATA #REQUIRED
+                dtd-version CDATA #REQUIRED
+                xml:lang CDATA #REQUIRED
+                xmlns:xlink CDATA #REQUIRED>
+        <!ELEMENT front (journal-meta|article-meta)*>
+        <!ELEMENT journal-meta (journal-id|journal-title-group|issn|publisher)*>
+        <!ELEMENT journal-id (#PCDATA)>
+        <!ATTLIST journal-id
+                journal-id-type CDATA #REQUIRED>
+        <!ELEMENT journal-title-group (journal-title)*>
+        <!ELEMENT journal-title (#PCDATA)>
+        <!ELEMENT issn (#PCDATA)>
+        <!ATTLIST issn
+                pub-type CDATA #REQUIRED>
+        <!ELEMENT publisher (publisher-name|publisher-loc)*>
+        <!ELEMENT publisher-name (#PCDATA)>
+        <!ELEMENT publisher-loc (#PCDATA)>
+        <!ELEMENT article-meta (article-id|article-categories|title-group|contrib-group|aff|author-notes|pub-date|volume|issue|fpage|lpage|permissions|self-uri|abstract|kwd-group)*>
+        <!ELEMENT article-id (#PCDATA)>
+        <!ATTLIST article-id
+                pub-id-type CDATA #REQUIRED>
+        <!ELEMENT article-categories (subj-group)*>
+        <!ELEMENT subj-group (subject)*>
+        <!ATTLIST subj-group
+                subj-group-type CDATA #REQUIRED>
+        <!ELEMENT subject (#PCDATA)>
+        <!ELEMENT title-group (article-title)*>
+        <!ELEMENT article-title (#PCDATA)>
+        <!ELEMENT contrib-group (contrib|x)*>
+        <!ELEMENT contrib (string-name|x|degrees|xref)*>
+        <!ATTLIST contrib
+                contrib-type CDATA #REQUIRED>
+        <!ELEMENT string-name (given-names|surname)*>
+        <!ELEMENT given-names (#PCDATA)>
+        <!ELEMENT surname (#PCDATA)>
+        <!ELEMENT x (#PCDATA)>
+        <!ELEMENT degrees (#PCDATA)>
+        <!ELEMENT xref (sup|italic)*>
+        <!ATTLIST xref
+                ref-type CDATA #REQUIRED
+                rid CDATA #REQUIRED>
+        <!ELEMENT sup (#PCDATA)>
+        <!ELEMENT aff (label)*>
+        <!ATTLIST aff
+                id CDATA #REQUIRED>
+        <!ELEMENT label (sup)*>
+        <!ELEMENT author-notes (corresp)*>
+        <!ELEMENT corresp (email)*>
+        <!ATTLIST corresp
+                id CDATA #REQUIRED>
+        <!ELEMENT email (#PCDATA)>
+        <!ELEMENT pub-date (month|year)*>
+        <!ATTLIST pub-date
+                pub-type CDATA #REQUIRED>
+        <!ELEMENT month (#PCDATA)>
+        <!ELEMENT year (#PCDATA)>
+        <!ELEMENT volume (#PCDATA)>
+        <!ELEMENT issue (#PCDATA)>
+        <!ELEMENT fpage (#PCDATA)>
+        <!ELEMENT lpage (#PCDATA)>
+        <!ELEMENT permissions (copyright-statement|copyright-year|copyright-holder)*>
+        <!ELEMENT copyright-statement (#PCDATA)>
+        <!ELEMENT copyright-year (#PCDATA)>
+        <!ELEMENT copyright-holder (#PCDATA)>
+        <!ATTLIST copyright-holder
+                content-type CDATA #REQUIRED>
+        <!ELEMENT self-uri (#PCDATA)>
+        <!ATTLIST self-uri
+                content-type CDATA #REQUIRED
+                xlink:href CDATA #REQUIRED>
+        <!ELEMENT abstract (p)*>
+        <!ELEMENT p (italic|xref|bold)*>
+        <!ELEMENT italic (#PCDATA)>
+        <!ELEMENT kwd-group (kwd|x)*>
+        <!ELEMENT kwd (#PCDATA)>
+        <!ELEMENT body (p|sec)*>
+        <!ELEMENT sec (title|p|table-wrap|sec|list|fig)*>
+        <!ATTLIST sec
+                id CDATA #REQUIRED
+                sec-type CDATA #IMPLIED>
+        <!ELEMENT title (#PCDATA)>
+        <!ELEMENT table-wrap (label|caption|alternatives|table-wrap-foot)*>
+        <!ATTLIST table-wrap
+                id CDATA #REQUIRED
+                position CDATA #REQUIRED>
+        <!ELEMENT caption (p)*>
+        <!ELEMENT alternatives (graphic|table)*>
+        <!ELEMENT graphic (#PCDATA)>
+        <!ATTLIST graphic
+                xlink:href CDATA #REQUIRED>
+        <!ELEMENT table (colgroup|thead|tbody)*>
+        <!ELEMENT colgroup (col)*>
+        <!ELEMENT col (#PCDATA)>
+        <!ATTLIST col
+                align CDATA #REQUIRED
+                char CDATA #IMPLIED>
+        <!ELEMENT thead (tr)*>
+        <!ELEMENT tr (th|td)*>
+        <!ELEMENT th (#PCDATA)>
+        <!ATTLIST th
+                align CDATA #REQUIRED>
+        <!ELEMENT tbody (tr)*>
+        <!ELEMENT td (#PCDATA)>
+        <!ATTLIST td
+                colspan CDATA #IMPLIED>
+        <!ELEMENT list (list-item)*>
+        <!ATTLIST list
+                id CDATA #REQUIRED
+                list-type CDATA #REQUIRED>
+        <!ELEMENT list-item (p)*>
+        <!ELEMENT bold (#PCDATA)>
+        <!ELEMENT table-wrap-foot (fn)*>
+        <!ELEMENT fn (p|label)*>
+        <!ATTLIST fn
+                fn-type CDATA #IMPLIED
+                id CDATA #IMPLIED>
+        <!ELEMENT fig (label|caption|graphic)*>
+        <!ATTLIST fig
+                id CDATA #REQUIRED
+                position CDATA #REQUIRED>
+        <!ELEMENT back (fn-group|ref-list)*>
+        <!ELEMENT fn-group (fn)*>
+        <!ELEMENT ref-list (title|ref)*>
+        <!ELEMENT ref (mixed-citation)*>
+        <!ATTLIST ref
+                id CDATA #REQUIRED>
+        <!ELEMENT mixed-citation (collab|year|source|publisher-loc|publisher-name|person-group|article-title|volume|fpage|lpage|pub-id|edition|ext-link)*>
+        <!ATTLIST mixed-citation
+                publication-type CDATA #REQUIRED>
+        <!ELEMENT collab (#PCDATA)>
+        <!ELEMENT source (#PCDATA)>
+        <!ELEMENT person-group (string-name)*>
+        <!ATTLIST person-group
+                person-group-type CDATA #REQUIRED>
+        <!ELEMENT pub-id (#PCDATA)>
+        <!ATTLIST pub-id
+                pub-id-type CDATA #REQUIRED>
+        <!ELEMENT edition (#PCDATA)>
+        <!ELEMENT ext-link (#PCDATA)>
+        <!ATTLIST ext-link
+                ext-link-type CDATA #REQUIRED
+                xlink:href CDATA #REQUIRED>
