@@ -13,7 +13,7 @@
 <body>
 
 <h1>File is Submitted</h1>
-<form action="/unzip" method="post">
+<form action="/process" method="post">
     <button type="submit">Unzip</button>
 </form>
 </body>

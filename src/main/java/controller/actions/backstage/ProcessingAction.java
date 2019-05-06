@@ -1,6 +1,10 @@
 package controller.actions.backstage;
 
 import controller.actions.IAction;
+import model.database.DAO;
+import model.database.UnprocessedFileDAO;
+import utilities.ProcessingFiles;
+import utilities.ThreadPool;
 import utilities.TransformationUtil;
 
 import javax.servlet.RequestDispatcher;
@@ -11,28 +15,32 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 
 public class ProcessingAction implements IAction {
+
+
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("jsp/FileIsSubmited.jsp");
         requestDispatcher.forward(request, response);
     }
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        //  UnZip.unZip("C:\\Users\\LUTFI\\Desktop\\lutfi-atypon\\literatum-lutfi\\content\\a.zip","C:\\Users\\LUTFI\\Desktop\\lutfi-atypon\\literatum-lutfi\\content");
-        writeContentXml("C:\\Users\\LUTFI\\Desktop\\lutfi-atypon\\literatum-lutfi\\content\\bhda_42_2\\0198742916688653\\0198742916688653.xml", "C:\\Users\\LUTFI\\Desktop\\lutfi-atypon\\literatum-lutfi\\web\\test\\parsMeta.xsl");
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        processFiles();
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
+        requestDispatcher.forward(request, response);
+
     }
 
-    private void writeContentXml(String xml, String xsl) throws IOException {
-        String string = TransformationUtil.getXml(xml, xsl);
-        File file = new File("C:\\Users\\LUTFI\\Desktop\\lutfi-atypon\\literatum-lutfi\\theDois" + "\\a.xml");
-        PrintWriter printWriter = new PrintWriter(new FileOutputStream(file));
-        printWriter.write(string);
-        printWriter.flush();
-        printWriter.close();
-        Path path = Paths.get("C:\\Users\\LUTFI\\Desktop\\lutfi-atypon\\literatum-lutfi\\content\\bhda_42_2\\0198742916688653\\0198742916688653.pdf");
-        Path pathTo = Paths.get("C:\\Users\\LUTFI\\Desktop\\lutfi-atypon\\literatum-lutfi\\theDois\\a.pdf");
-        Files.copy(path, pathTo);
+    private void processFiles ()
+    {
+        UnprocessedFileDAO dao = new UnprocessedFileDAO();
+        List<String> unprocessedFiles = dao.getUnprocessedFile();
+        ThreadPool pool = ThreadPool.getInstance();
+        for (String unprocessedFile: unprocessedFiles)
+        {
+            pool.execute(new ProcessingFiles(unprocessedFile));
+        }
     }
 }

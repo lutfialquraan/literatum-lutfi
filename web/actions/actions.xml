@@ -4,7 +4,7 @@
     <action name="showHome"  url="/welcome" class="controller.actions.WelcomeAction" />
     <action name="showlutfi"  url="/uploadFile" class="controller.actions.wat.UploadAdmin" />
     <action name="showabood"  url="/" class="controller.actions.WelcomeAction" />
-    <action name="lutfi"  url="/unzip" class="controller.actions.backstage.ProcessingAction" />
+    <action name="lutfi"  url="/process" class="controller.actions.backstage.ProcessingAction" />
     <action name="abood"  url="/logout" class="controller.actions.LogoutAction" />
     <action name="signup"  url="/signup" class="controller.actions.SignUpAction" />
     <action name="/login"  url="/login" class="controller.actions.LogInAction" />

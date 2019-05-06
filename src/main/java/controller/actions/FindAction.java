@@ -16,8 +16,8 @@ public final class FindAction {
 
     private static void fillActionsToMap ()
     {
-//                String convertedXml = TransformationUtil.getXml("/home/lquran/Desktop/Litratum/literatum-lutfi/web/actions/actions.xml","/home/lquran/Desktop/Litratum/literatum-lutfi/web/actions/actions.xsl");
-        String convertedXml = TransformationUtil.getXml("C:\\Users\\LUTFI\\Desktop\\lutfi-atypon\\literatum-lutfi\\web\\actions\\actions.xml","C:\\Users\\LUTFI\\Desktop\\lutfi-atypon\\literatum-lutfi\\web\\actions\\actions.xsl");
+        String convertedXml = TransformationUtil.getXml("/home/lquran/Desktop/Litratum/literatum-lutfi/web/actions/actions.xml","/home/lquran/Desktop/Litratum/literatum-lutfi/web/actions/actions.xsl");
+//        String convertedXml = TransformationUtil.getXml("C:\\Users\\LUTFI\\Desktop\\lutfi-atypon\\literatum-lutfi\\web\\actions\\actions.xml","C:\\Users\\LUTFI\\Desktop\\lutfi-atypon\\literatum-lutfi\\web\\actions\\actions.xsl");
         String actionUrl;
         String actionClass;
         String [] lines = convertedXml.split(System.lineSeparator());

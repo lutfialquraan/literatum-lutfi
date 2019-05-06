@@ -77,6 +77,32 @@ public class UnprocessedFileDAO extends DAO {
         return file;
     }
 
+
+    public List<String> getUnprocessedFile ()
+    {
+        List<String> filePaths = new ArrayList<>();
+        Statement myStat;
+        ResultSet myRes;
+        try {
+            String sql = "select file_path from unprocessed_file where status = 0";
+            myStat = connectionPool.getConnection().createStatement();
+            myRes = myStat.executeQuery(sql);
+            while (myRes.next())
+            {
+                String filePath = myRes.getString("file_path");
+                filePaths.add(filePath);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return filePaths;
+
+
+
+    }
+
+
+
     private List<Object> getFile(ResultSet resultSet) {
         List<Object> files = new ArrayList<>();
         UnprocessedFile file = null;
