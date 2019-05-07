@@ -83,7 +83,7 @@ public class ProcessingFiles implements Runnable {
     @Override
     public void run() {
 
-        int idx = zippedFile.lastIndexOf("/");
+        int idx = zippedFile.lastIndexOf("\\");
         String zipFileName = zippedFile.substring(idx + 1,zippedFile.length()-4);
         UnZip.unZip(zippedFile, DirectoryPaths.UNPROCESSED_FILE_PATH + zipFileName);
 

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <actions>
+    <action name="getArticle"  url="/getArticle" class="controller.actions.GetArticleAction" />
     <action name="showHome"  url="/home" class="controller.actions.WelcomeAction" />
     <action name="showlutfi"  url="/uploadFile" class="controller.actions.wat.UploadAdmin" />
     <action name="showabood"  url="/" class="controller.actions.WelcomeAction" />
@@ -13,4 +14,5 @@
     <action name="/admin/delete-user"  url="/admin/delete-user" class="controller.actions.wat.DeleteUserAction" />
     <action name="/admin/list-users"  url="/admin/list-users" class="controller.actions.wat.ListUsersAction" />
     <action name="/admin/list-users"  url="/admin/list-users" class="controller.actions.wat.ListUsersAction" />
+    <action name="/admin"  url="/admin" class="controller.actions.wat.AdminLogInAction" />
 </actions>

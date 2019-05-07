@@ -13,8 +13,7 @@
 <body>
 <jsp:include page="logged-in-nav-bar.jsp"/>
 
-
-
+${html}
 
 </body>
 </html>
