@@ -22,7 +22,7 @@ public class ProcessingAction implements IAction {
 
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("jsp/FileIsSubmited.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("jsp/admin/FileIsSubmited.jsp");
         requestDispatcher.forward(request, response);
     }
 

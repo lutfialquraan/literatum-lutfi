@@ -27,14 +27,14 @@ public class SignUpAction implements IAction {
         DAO userDAO = new UsersDAO();
         userDAO.insert(basicUser);
 
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("jsp/sign-up.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("jsp/admin/sign-up.jsp");
         requestDispatcher.forward(request,response);
 
     }
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("jsp/sign-up.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("jsp/admin/sign-up.jsp");
         requestDispatcher.forward(request,response);
 
     }

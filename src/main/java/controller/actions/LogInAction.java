@@ -26,8 +26,7 @@ public class LogInAction implements IAction {
         {
             HttpSession session = request.getSession();
             session.setAttribute("name",baseUser.getFirstName());
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher("jsp/logged-in.jsp");
-            requestDispatcher.forward(request,response);
+            response.sendRedirect("/showArticles");
         }
 
         else {
@@ -38,7 +37,7 @@ public class LogInAction implements IAction {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("jsp/log-in.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("jsp/admin/log-in.jsp");
         requestDispatcher.forward(request,response);
     }
 }

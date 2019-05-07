@@ -40,6 +40,16 @@ public class UnprocessedFileDAO extends DAO {
 
     @Override
     public void update(Object object) {
+        try {
+            String file_path = (String) object;
+            String sql = "update unprocessed_file set status =? where file_path = ? ;";
+            PreparedStatement preparedStatement = connectionPool.getConnection().prepareStatement(sql);
+            preparedStatement.setInt(1, Status.PROCESSED.getValue());
+            preparedStatement.setString(2, file_path);
+            preparedStatement.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 

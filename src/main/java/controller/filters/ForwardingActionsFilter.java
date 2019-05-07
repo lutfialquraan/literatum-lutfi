@@ -24,7 +24,7 @@ public class ForwardingActionsFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) servletResponse;
 
         String url = request.getRequestURI();
-        if (url.endsWith("css") || url.endsWith("jsp") || url.endsWith("js") || url.endsWith("html")||url.endsWith("ico")) {
+        if (url.endsWith("css") || url.endsWith("jsp") || url.endsWith("js") || url.endsWith("html")||url.endsWith("ico") || url.endsWith("jpg")) {
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(url);
             requestDispatcher.forward(request,response);
             return;

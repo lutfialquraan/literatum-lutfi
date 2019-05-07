@@ -11,7 +11,7 @@ public class LogoutAction implements IAction {
         HttpSession session = request.getSession(false);
         session.removeAttribute("name");
         session.invalidate();
-        response.sendRedirect("index.jsp");
+        response.sendRedirect("jsp/user/home-logged-in.jsp");
     }
 
     @Override

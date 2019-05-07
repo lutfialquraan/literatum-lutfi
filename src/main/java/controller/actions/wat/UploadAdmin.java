@@ -24,13 +24,13 @@ import java.util.List;
 public class UploadAdmin implements IAction {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException, ClassNotFoundException {
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("jsp/wat.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("jsp/admin/wat.jsp");
         requestDispatcher.forward(request, response);
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
         writeFileWithException(request);
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("jsp/FileIsSubmited.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("jsp/admin/FileIsSubmited.jsp");
         requestDispatcher.forward(request, response);
     }
 
@@ -57,6 +57,7 @@ public class UploadAdmin implements IAction {
         DAO unprocessedFileDAO = new UnprocessedFileDAO();
         unprocessedFileDAO.insert(unprocessedFile);
         File file = new File(fileName);
+        if (!file.exists())
         items.get(0).write(file);
 
         /**Iterator<FileItem> iter = items.iterator();

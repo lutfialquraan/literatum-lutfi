@@ -1,5 +1,6 @@
 package controller.actions;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,8 +12,8 @@ public class WelcomeAction implements IAction {
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException, ClassNotFoundException {
-        PrintWriter writer = response.getWriter();
-        writer.println("<h1>Welcome<h1>");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("jsp/user/home.jsp");
+        requestDispatcher.forward(request,response);
     }
 
     @Override
