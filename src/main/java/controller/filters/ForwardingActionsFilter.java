@@ -1,6 +1,6 @@
 package controller.filters;
 
-import controller.FrontController;
+import controller.servlet.FrontController;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;

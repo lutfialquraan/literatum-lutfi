@@ -1,10 +1,10 @@
 package utilities;
 
 
-import model.ContentMeta;
+import model.contents.ContentMeta;
 import model.database.ContentMetaDAO;
 import model.database.DAO;
-import model.database.UnprocessedFileDAO;
+import model.database.SubmittedFileDAO;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -112,7 +112,7 @@ public class ProcessingFiles implements Runnable {
             e.printStackTrace();
         }
 
-        DAO unprocessedFileDAO = new UnprocessedFileDAO();
+        DAO unprocessedFileDAO = new SubmittedFileDAO();
         unprocessedFileDAO.update(zippedFile);
     }
 }

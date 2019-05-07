@@ -1,6 +1,6 @@
 package model.database;
 
-import model.ContentMeta;
+import model.contents.ContentMeta;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
