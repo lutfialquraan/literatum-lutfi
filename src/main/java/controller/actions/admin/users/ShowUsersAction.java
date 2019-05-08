@@ -22,7 +22,7 @@ public class ShowUsersAction implements IAction {
         DAO userDAO = new UsersDAO();
         List<AbstractBaseUser> users = (List<AbstractBaseUser>)(List<?>) userDAO.selectAll();
         request.setAttribute("users",users);
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("jsp/admin/users/show-user.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("jsp/admin/users/show-users.jsp");
         requestDispatcher.forward(request,response);
     }
 }

@@ -3,7 +3,7 @@
 <actions>
     <action name="getArticle"  url="/getArticle" class="controller.actions.user.GetArticleAction" />
     <action name="showHome"  url="/home" class="controller.actions.user.WelcomeAction" />
-    <action name="showlutfi"  url="/uploadFile" class="controller.actions.admin.backstage.UploadAdmin" />
+    <action name="showlutfi"  url="/uploadFile" class="controller.actions.admin.backstage.UploadFileAction" />
     <action name="showabood"  url="/" class="controller.actions.user.WelcomeAction" />
     <action name="lutfi"  url="/process" class="controller.actions.admin.backstage.ProcessingAction" />
     <action name="abood"  url="/logout" class="controller.actions.user.LogoutAction" />
@@ -19,5 +19,9 @@
     <action name="/admin/users/showUsers"  url="/admin/users/showUsers" class="controller.actions.admin.users.ShowUsersAction" />
     <action name="/admin/users/addUser"  url="/admin/users/addUser" class="controller.actions.admin.users.AddUserAction" />
     <action name="/admin/users/deleteUser"  url="/admin/users/deleteUser" class="controller.actions.admin.users.DeleteUserAction" />
-    <action name="/admin/users/deleteUser"  url="/admin/users/deleteUser" class="controller.actions.admin.users.DeleteUserAction" />
+    <action name="/admin/users/findUser"  url="admin/users/findUser" class="controller.actions.admin.users.DeleteUserAction" />
+    <action name="/admin/backstage"  url="/admin/backstage" class="controller.actions.admin.backstage.ShowHomeBackstageAction" />
+    <action name="/admin/backstage/showFiles"  url="/admin/backstage/showFiles" class="controller.actions.admin.backstage.ShowSubmittedFilesAction" />
+    <action name="/admin/backstage/uploadFile"  url="/admin/backstage/uploadFile" class="controller.actions.admin.backstage.UploadFileAction" />
+    <action name="/admin/backstage/processFile"  url="/admin/backstage/processFile" class="controller.actions.admin.backstage.ProcessingAction" />
 </actions>

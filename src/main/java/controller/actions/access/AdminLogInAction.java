@@ -31,7 +31,7 @@ public class AdminLogInAction implements IAction {
         if (isLoggedIn && (isAdmin || isSuperAdmin))
         {
             ControlSession.createSession(request,baseUser.getFirstName());
-            RequestDispatcher dispatcher = request.getRequestDispatcher("jsp/admin/admin-home.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("jsp/admin/access/admin-home.jsp");
             dispatcher.forward(request,response);
         }
 
@@ -43,7 +43,7 @@ public class AdminLogInAction implements IAction {
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("jsp/admin/admin-login.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("jsp/admin/access/admin-login.jsp");
         dispatcher.forward(request,response);
     }
 

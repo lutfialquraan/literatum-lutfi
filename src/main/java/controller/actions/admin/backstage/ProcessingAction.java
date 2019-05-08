@@ -17,7 +17,7 @@ public class ProcessingAction implements IAction {
 
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("jsp/admin/FileIsSubmited.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("jsp/admin/backstage/process-file.jsp");
         requestDispatcher.forward(request, response);
     }
 
