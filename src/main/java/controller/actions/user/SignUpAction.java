@@ -4,7 +4,6 @@ import at.favre.lib.crypto.bcrypt.BCrypt;
 import controller.actions.IAction;
 import model.database.DAO;
 import model.database.UsersDAO;
-import model.enums.Role;
 import model.users.AbstractBaseUser;
 import model.users.BasicUser;
 import utilities.ControlSession;
