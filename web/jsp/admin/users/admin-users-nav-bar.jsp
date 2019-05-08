@@ -10,19 +10,19 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="users/showUsers">Show Users<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/admin/users/showUsers">Show Users<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="users/addUser">Add User</a>
+                <a class="nav-link" href="/admin/users/addUser">Add User</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="users/deleteUser">Delete User</a>
+                <a class="nav-link" href="/admin/users/deleteUser">Delete User</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="users/updateUser">Update User</a>
+                <a class="nav-link" href="/admin/users/updateUser">Update User</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="users/findUser">Find User</a>
+                <a class="nav-link" href="/admin/users/findUser">Find User</a>
             </li>
 
         </ul>

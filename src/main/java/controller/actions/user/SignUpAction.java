@@ -7,6 +7,7 @@ import model.database.UsersDAO;
 import model.enums.Role;
 import model.users.AbstractBaseUser;
 import model.users.BasicUser;
+import utilities.ControlSession;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
@@ -28,14 +29,13 @@ public class SignUpAction implements IAction {
         DAO userDAO = new UsersDAO();
         userDAO.insert(basicUser);
 
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("jsp/admin/sign-up.jsp");
-        requestDispatcher.forward(request,response);
-
+        ControlSession.createSession(request,basicUser.getFirstName());
+        response.sendRedirect("/showArticles");
     }
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("jsp/admin/sign-up.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("jsp/user/sign-up.jsp");
         requestDispatcher.forward(request,response);
 
     }

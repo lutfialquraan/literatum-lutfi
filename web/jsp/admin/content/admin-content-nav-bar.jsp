@@ -13,16 +13,16 @@
                 <a class="nav-link" href="/admin/showContents">Show Content<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="admin/addContent">Add Content</a>
+                <a class="nav-link" href="/admin/addContent">Add Content</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="admin/deleteContent">Delete Content</a>
+                <a class="nav-link" href="/admin/deleteContent">Delete Content</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="admin/updateContent">Update Content</a>
+                <a class="nav-link" href="/admin/updateContent">Update Content</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="admin/findContent">Find Content</a>
+                <a class="nav-link" href="/admin/findContent">Find Content</a>
             </li>
         </ul>
         <ul class="navbar-nav ml-auto">

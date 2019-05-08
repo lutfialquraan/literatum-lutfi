@@ -27,7 +27,7 @@ public class ShowArticlesAction implements IAction {
         HttpSession session = request.getSession();
         session.setAttribute("meta",meta);
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("jsp/preview/home-logged-in.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("jsp/user/home-logged-in.jsp");
         dispatcher.forward(request,response);
     }
 }

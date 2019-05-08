@@ -11,7 +11,7 @@ public class LogoutAction implements IAction {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
         ControlSession.deleteSession(request);
-        response.sendRedirect("jsp/user/home.jsp");
+        response.sendRedirect("/home");
     }
 
     @Override

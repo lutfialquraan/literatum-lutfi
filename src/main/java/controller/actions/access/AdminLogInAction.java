@@ -10,8 +10,6 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import static utilities.AccessControl.isLoggedIn;
-
 public class AdminLogInAction implements IAction {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -22,7 +20,7 @@ public class AdminLogInAction implements IAction {
         DAO usersDAO = new UsersDAO();
         AbstractBaseUser baseUser = (AbstractBaseUser) usersDAO.select(email);
 
-        boolean isLoggedIn = AccessControl.isLoggedIn(password,baseUser.getPassword());
+        boolean isLoggedIn = AccessControl.isAuthenticated(password,baseUser.getPassword());
 
         boolean isAdmin = AccessControl.isAdmin(baseUser.getRole());
 

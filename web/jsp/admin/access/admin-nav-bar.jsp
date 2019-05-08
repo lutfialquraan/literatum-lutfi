@@ -10,16 +10,16 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="admin/backstage">Backstage<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/admin/backstage">Backstage<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="admin/users">Users</a>
+                <a class="nav-link" href="/admin/users">Users</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="admin/license">License</a>
+                <a class="nav-link" href="/admin/license">License</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="admin/contents">Contents</a>
+                <a class="nav-link" href="/admin/content">Contents</a>
             </li>
         </ul>
         <ul class="navbar-nav ml-auto">

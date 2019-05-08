@@ -19,7 +19,7 @@
 </head>
 <body>
 
-<jsp:include page="../access/admin-nav-bar.jsp"/>
+<jsp:include page="admin-content-nav-bar.jsp"/>
 <div class="jumbotron">
     <h1 class="display-4">Hola to Admin-Content!</h1>
     <p class="lead">Here you show, add, delete, find and update Contents.</p>

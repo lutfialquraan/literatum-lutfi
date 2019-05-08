@@ -33,11 +33,12 @@ public class GetArticleAction implements IAction {
         session.setAttribute("pdf",pdf);
         session.setAttribute("html",html.toString());
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("jsp/preview/get-article.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("jsp/user/get-article.jsp");
         dispatcher.forward(request,response);
     }
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        doPost(request,response);
     }
 }

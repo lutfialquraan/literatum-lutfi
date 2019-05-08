@@ -2,9 +2,9 @@
 
 <actions>
     <action name="getArticle"  url="/getArticle" class="controller.actions.user.GetArticleAction" />
-    <action name="showHome"  url="/home" class="controller.actions.user.WelcomeAction" />
+    <action name="showHome"  url="/home" class="controller.actions.user.ShowHomeAction" />
     <action name="showlutfi"  url="/uploadFile" class="controller.actions.admin.backstage.UploadFileAction" />
-    <action name="showabood"  url="/" class="controller.actions.user.WelcomeAction" />
+    <action name="showabood"  url="/" class="controller.actions.user.ShowHomeAction" />
     <action name="lutfi"  url="/process" class="controller.actions.admin.backstage.ProcessingAction" />
     <action name="abood"  url="/logout" class="controller.actions.user.LogoutAction" />
     <action name="signup"  url="/signup" class="controller.actions.user.SignUpAction" />
@@ -24,4 +24,10 @@
     <action name="/admin/backstage/showFiles"  url="/admin/backstage/showFiles" class="controller.actions.admin.backstage.ShowSubmittedFilesAction" />
     <action name="/admin/backstage/uploadFile"  url="/admin/backstage/uploadFile" class="controller.actions.admin.backstage.UploadFileAction" />
     <action name="/admin/backstage/processFile"  url="/admin/backstage/processFile" class="controller.actions.admin.backstage.ProcessingAction" />
+    <action name="/admin/content"  url="/admin/content" class="controller.actions.admin.contents.ShowHomeContentAction" />
+    <action name="/admin/showContents"  url="/admin/showContents" class="controller.actions.admin.contents.ShowContentsAction" />
+    <action name="/admin/addContent"  url="/admin/addContent" class="controller.actions.admin.contents.ShowHomeContentAction" />
+    <action name="/admin/deleteContent"  url="/admin/deleteContent" class="controller.actions.admin.contents.DeleteContentAction" />
+    <action name="/admin/updateContent"  url="/admin/updateContent" class="controller.actions.admin.contents.ShowHomeContentAction" />
+    <action name="/admin/findContent"  url="/admin/findContent" class="controller.actions.admin.contents.ShowHomeContentAction" />
 </actions>

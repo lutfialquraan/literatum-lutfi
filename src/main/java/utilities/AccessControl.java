@@ -12,7 +12,7 @@ public final class AccessControl {
     private AccessControl() {
     }
 
-    public static boolean isLoggedIn(String passwordByUser, String passwordInDataBase) {
+    public static boolean isAuthenticated(String passwordByUser, String passwordInDataBase) {
         boolean flag = BCrypt.verifyer().verify(passwordByUser.getBytes(), passwordInDataBase.getBytes()).verified;
 
         return flag;
@@ -39,7 +39,7 @@ public final class AccessControl {
         return false;
     }
 
-    public static boolean checkSession (HttpServletRequest request)
+    public static boolean isLoggedIn(HttpServletRequest request)
     {
         boolean allowed = false;
         HttpSession session = request.getSession();
