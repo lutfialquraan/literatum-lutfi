@@ -28,7 +28,7 @@ public class AdminLogInAction implements IAction {
 
         if (isLoggedIn && (isAdmin || isSuperAdmin))
         {
-            ControlSession.createSession(request,baseUser.getFirstName());
+            ControlSession.createSession(request,baseUser);
             RequestDispatcher dispatcher = request.getRequestDispatcher("jsp/admin/access/admin-home.jsp");
             dispatcher.forward(request,response);
         }

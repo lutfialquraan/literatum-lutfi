@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 public class LogoutAction implements IAction {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
         ControlSession.deleteSession(request);
         response.sendRedirect("/home");
     }

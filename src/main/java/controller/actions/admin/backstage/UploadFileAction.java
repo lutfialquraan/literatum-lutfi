@@ -4,6 +4,7 @@ import controller.actions.IAction;
 import model.contents.SubmittedFile;
 import model.database.DAO;
 import model.database.SubmittedFileDAO;
+import model.enums.Role;
 import model.enums.Status;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
@@ -23,7 +24,8 @@ import java.util.List;
 public class UploadFileAction implements IAction {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException, ClassNotFoundException {
-        if (AccessControl.isLoggedIn(request)) {
+        Role role = (Role) request.getSession().getAttribute("role");
+        if (AccessControl.isLoggedIn(request) && (AccessControl.isAdmin(role) || AccessControl.isSuperAdmin(role))) {
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("jsp/admin/backstage/upload-files.jsp");
             requestDispatcher.forward(request, response);
         } else {
@@ -33,7 +35,8 @@ public class UploadFileAction implements IAction {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-        if (AccessControl.isLoggedIn(request)) {
+        Role role = (Role) request.getSession().getAttribute("role");
+        if (AccessControl.isLoggedIn(request) && (AccessControl.isAdmin(role) || AccessControl.isSuperAdmin(role))) {
             writeFileWithException(request);
             response.sendRedirect("/admin/backstage/processFile");
         } else {

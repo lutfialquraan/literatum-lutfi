@@ -4,6 +4,7 @@ import controller.actions.IAction;
 import model.contents.ContentMeta;
 import model.database.ContentMetaDAO;
 import model.database.DAO;
+import model.enums.Role;
 import utilities.AccessControl;
 
 import javax.servlet.RequestDispatcher;
@@ -19,7 +20,8 @@ public class ShowContentsAction implements IAction {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        if (AccessControl.isLoggedIn(request)) {
+        Role role = (Role) request.getSession().getAttribute("role");
+        if (AccessControl.isLoggedIn(request) && (AccessControl.isAdmin(role) || AccessControl.isSuperAdmin(role))) {
             DAO contentMetaDAO = new ContentMetaDAO();
             List<ContentMeta> metas = (List<ContentMeta>) (List<?>) contentMetaDAO.selectAll();
             request.setAttribute("metas", metas);

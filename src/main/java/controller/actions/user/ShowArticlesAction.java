@@ -4,6 +4,7 @@ import controller.actions.IAction;
 import model.contents.ContentMeta;
 import model.database.ContentMetaDAO;
 import model.database.DAO;
+import utilities.AccessControl;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
@@ -20,14 +21,19 @@ public class ShowArticlesAction implements IAction {
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-        DAO contentMetaDAO = new ContentMetaDAO();
+        if (AccessControl.isLoggedIn(request)) {
+            DAO contentMetaDAO = new ContentMetaDAO();
 
-        List<ContentMeta> meta = (List<ContentMeta>) (List<?>) contentMetaDAO.selectAll();
+            List<ContentMeta> meta = (List<ContentMeta>) (List<?>) contentMetaDAO.selectAll();
 
-        HttpSession session = request.getSession();
-        session.setAttribute("meta", meta);
+            HttpSession session = request.getSession();
+            session.setAttribute("meta", meta);
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("jsp/user/home-logged-in.jsp");
-        dispatcher.forward(request, response);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("jsp/user/home-logged-in.jsp");
+            dispatcher.forward(request, response);
+
+        } else {
+            response.sendRedirect("/home");
+        }
     }
 }

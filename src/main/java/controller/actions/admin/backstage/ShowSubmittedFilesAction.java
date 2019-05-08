@@ -4,6 +4,7 @@ import controller.actions.IAction;
 import model.contents.SubmittedFile;
 import model.database.DAO;
 import model.database.SubmittedFileDAO;
+import model.enums.Role;
 import utilities.AccessControl;
 
 import javax.servlet.RequestDispatcher;
@@ -20,7 +21,8 @@ public class ShowSubmittedFilesAction implements IAction {
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-        if (AccessControl.isLoggedIn(request))
+        Role role = (Role) request.getSession().getAttribute("role");
+        if (AccessControl.isLoggedIn(request) && (AccessControl.isAdmin(role) || AccessControl.isSuperAdmin(role)))
         {
             DAO submittedFileDAO = new SubmittedFileDAO();
             List<SubmittedFile> submittedFiles = (List<SubmittedFile>) (List<?>) submittedFileDAO.selectAll();

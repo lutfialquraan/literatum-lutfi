@@ -29,7 +29,7 @@ public class SignUpAction implements IAction {
         DAO userDAO = new UsersDAO();
         userDAO.insert(basicUser);
 
-        ControlSession.createSession(request, basicUser.getFirstName());
+        ControlSession.createSession(request, basicUser);
         response.sendRedirect("/showArticles");
     }
 

@@ -3,6 +3,7 @@ package controller.actions.admin.users;
 import controller.actions.IAction;
 import model.database.DAO;
 import model.database.UsersDAO;
+import model.enums.Role;
 import model.users.AbstractBaseUser;
 import utilities.AccessControl;
 
@@ -19,8 +20,8 @@ public class ShowUsersAction implements IAction {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
-        if (AccessControl.isLoggedIn(request)) {
+        Role role = (Role) request.getSession().getAttribute("role");
+        if (AccessControl.isLoggedIn(request) && (AccessControl.isAdmin(role) || AccessControl.isSuperAdmin(role))) {
             DAO userDAO = new UsersDAO();
             List<AbstractBaseUser> users = (List<AbstractBaseUser>) (List<?>) userDAO.selectAll();
             request.setAttribute("users", users);

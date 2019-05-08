@@ -4,6 +4,7 @@ import at.favre.lib.crypto.bcrypt.BCrypt;
 import controller.actions.IAction;
 import model.database.DAO;
 import model.database.UsersDAO;
+import model.enums.Role;
 import model.users.AbstractBaseUser;
 import model.users.Admin;
 import model.users.BasicUser;
@@ -18,7 +19,8 @@ public class AddUserAction implements IAction {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-        if (AccessControl.isLoggedIn(request)) {
+        Role role = (Role) request.getSession().getAttribute("role");
+        if (AccessControl.isLoggedIn(request) && AccessControl.isSuperAdmin(role)) {
             String first_name = request.getParameter("first_name");
             String last_name = request.getParameter("last_name");
             String user_name = request.getParameter("user_name");
@@ -56,7 +58,8 @@ public class AddUserAction implements IAction {
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-        if (AccessControl.isLoggedIn(request)) {
+        Role role = (Role) request.getSession().getAttribute("role");
+        if (AccessControl.isLoggedIn(request) && AccessControl.isSuperAdmin(role)) {
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("jsp/admin/users/add-user.jsp");
             requestDispatcher.forward(request, response);
         } else {

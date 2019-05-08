@@ -2,6 +2,7 @@ package controller.actions.admin.backstage;
 
 import controller.actions.IAction;
 import model.database.SubmittedFileDAO;
+import model.enums.Role;
 import utilities.AccessControl;
 import utilities.ProcessingFiles;
 import utilities.ThreadPool;
@@ -15,7 +16,9 @@ import java.util.List;
 
 public class ProcessingAction implements IAction {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if (AccessControl.isLoggedIn(request))
+
+        Role role = (Role) request.getSession().getAttribute("role");
+        if (AccessControl.isLoggedIn(request) && (AccessControl.isAdmin(role) || AccessControl.isSuperAdmin(role)))
         {
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("jsp/admin/backstage/process-file.jsp");
             requestDispatcher.forward(request, response);
@@ -26,7 +29,8 @@ public class ProcessingAction implements IAction {
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        if (AccessControl.isLoggedIn(request))
+        Role role = (Role) request.getSession().getAttribute("role");
+        if (AccessControl.isLoggedIn(request) && (AccessControl.isAdmin(role) || AccessControl.isSuperAdmin(role)))
         {
             processFiles();
             response.sendRedirect("/admin/backstage/showFiles");

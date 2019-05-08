@@ -26,7 +26,7 @@ public class LogInAction implements IAction {
 
 
         if (isAuthenticated) {
-            ControlSession.createSession(request, baseUser.getFirstName());
+            ControlSession.createSession(request, baseUser);
             response.sendRedirect("/showArticles");
         } else {
             doGet(request, response);
