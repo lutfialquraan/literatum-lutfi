@@ -3,6 +3,7 @@ package controller.actions.admin.users;
 import controller.actions.IAction;
 import model.database.DAO;
 import model.database.UsersDAO;
+import utilities.AccessControl;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
@@ -13,18 +14,25 @@ public class DeleteUserAction implements IAction {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-        String email = request.getParameter("email");
+        if (AccessControl.isLoggedIn(request)) {
+            String email = request.getParameter("email");
 
-        DAO userDAO = new UsersDAO();
-        userDAO.delete(email);
+            DAO userDAO = new UsersDAO();
+            userDAO.delete(email);
 
-        response.sendRedirect("/admin/users/showUsers");
-
+            response.sendRedirect("/admin/users/showUsers");
+        } else {
+            response.sendRedirect("/admin");
+        }
     }
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("jsp/admin/users/delete-user.jsp");
-        requestDispatcher.forward(request,response);
+        if (AccessControl.isLoggedIn(request)) {
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("jsp/admin/users/delete-user.jsp");
+            requestDispatcher.forward(request, response);
+        } else {
+            response.sendRedirect("/admin");
+        }
     }
 }

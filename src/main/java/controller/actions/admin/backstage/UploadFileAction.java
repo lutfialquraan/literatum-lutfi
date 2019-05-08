@@ -8,6 +8,7 @@ import model.enums.Status;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import utilities.AccessControl;
 import utilities.DirectoryPaths;
 
 import javax.servlet.RequestDispatcher;
@@ -22,13 +23,22 @@ import java.util.List;
 public class UploadFileAction implements IAction {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException, ClassNotFoundException {
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("jsp/admin/backstage/upload-files.jsp");
-        requestDispatcher.forward(request, response);
+        if (AccessControl.isLoggedIn(request)) {
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("jsp/admin/backstage/upload-files.jsp");
+            requestDispatcher.forward(request, response);
+        } else {
+            response.sendRedirect("/admin");
+        }
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        writeFileWithException(request);
-        response.sendRedirect("/admin/backstage/processFile");
+
+        if (AccessControl.isLoggedIn(request)) {
+            writeFileWithException(request);
+            response.sendRedirect("/admin/backstage/processFile");
+        } else {
+            response.sendRedirect("/admin");
+        }
     }
 
     private void writeFileWithException(HttpServletRequest req) throws Exception {
@@ -49,17 +59,17 @@ public class UploadFileAction implements IAction {
         List<FileItem> items = upload.parseRequest(req);
         // Process the uploaded items
 
-        String fileName = DirectoryPaths.SUBMITTED_FILE_PATH+ items.get(0).getName();
+        String fileName = DirectoryPaths.SUBMITTED_FILE_PATH + items.get(0).getName();
         SubmittedFile submittedFile = new SubmittedFile(fileName, Status.UNPROCESSED);
         DAO unprocessedFileDAO = new SubmittedFileDAO();
         unprocessedFileDAO.insert(submittedFile);
         File file = new File(fileName);
         if (!file.exists())
-        items.get(0).write(file);
+            items.get(0).write(file);
 
         /**Iterator<FileItem> iter = items.iterator();
-        //uploadedFile.createNewFile();
-        iter.next().write(file);
+         //uploadedFile.createNewFile();
+         iter.next().write(file);
          **/
         if (repo.exists()) {
             repo.delete();

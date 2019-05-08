@@ -15,8 +15,3 @@ public abstract class DAO {
     abstract public List<Object> selectAll();
     abstract public Object select(Object object);
 }
-
-/*
-TRY(Coonnect)
-
-* */

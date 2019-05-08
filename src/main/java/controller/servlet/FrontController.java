@@ -28,13 +28,9 @@ public class FrontController extends HttpServlet {
         try {
             String actionUrl = (String) req.getAttribute("action");
             IAction action = FindAction.getAction(actionUrl);
-            action.execute(req,res);
-        }
-
-        catch (Exception e)
-        {
+            action.execute(req, res);
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
 }

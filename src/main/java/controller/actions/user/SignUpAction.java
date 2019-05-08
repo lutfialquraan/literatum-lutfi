@@ -25,18 +25,18 @@ public class SignUpAction implements IAction {
         char[] encryptedText = BCrypt.withDefaults().hashToChar(12, password.toCharArray());
         password = new String(encryptedText);
 
-        AbstractBaseUser basicUser = new BasicUser(first_name,last_name,user_name,email,password);
+        AbstractBaseUser basicUser = new BasicUser(first_name, last_name, user_name, email, password);
         DAO userDAO = new UsersDAO();
         userDAO.insert(basicUser);
 
-        ControlSession.createSession(request,basicUser.getFirstName());
+        ControlSession.createSession(request, basicUser.getFirstName());
         response.sendRedirect("/showArticles");
     }
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws Exception {
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("jsp/user/sign-up.jsp");
-        requestDispatcher.forward(request,response);
+        requestDispatcher.forward(request, response);
 
     }
 }

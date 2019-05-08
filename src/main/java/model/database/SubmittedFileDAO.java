@@ -88,8 +88,7 @@ public class SubmittedFileDAO extends DAO {
     }
 
 
-    public List<String> getUnprocessedFile ()
-    {
+    public List<String> getUnprocessedFile() {
         List<String> filePaths = new ArrayList<>();
         Statement myStat;
         ResultSet myRes;
@@ -97,8 +96,7 @@ public class SubmittedFileDAO extends DAO {
             String sql = "select file_path from unprocessed_file where status = 0";
             myStat = connectionPool.getConnection().createStatement();
             myRes = myStat.executeQuery(sql);
-            while (myRes.next())
-            {
+            while (myRes.next()) {
                 String filePath = myRes.getString("file_path");
                 filePaths.add(filePath);
             }
@@ -108,9 +106,7 @@ public class SubmittedFileDAO extends DAO {
         return filePaths;
 
 
-
     }
-
 
 
     private List<Object> getFile(ResultSet resultSet) {

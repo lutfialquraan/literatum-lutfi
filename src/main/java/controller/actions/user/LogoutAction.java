@@ -16,6 +16,6 @@ public class LogoutAction implements IAction {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        doPost(request,response);
+        doPost(request, response);
     }
 }

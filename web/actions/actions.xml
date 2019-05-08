@@ -3,18 +3,19 @@
 <actions>
     <action name="getArticle"  url="/getArticle" class="controller.actions.user.GetArticleAction" />
     <action name="showHome"  url="/home" class="controller.actions.user.ShowHomeAction" />
-    <action name="showlutfi"  url="/uploadFile" class="controller.actions.admin.backstage.UploadFileAction" />
-    <action name="showabood"  url="/" class="controller.actions.user.ShowHomeAction" />
-    <action name="lutfi"  url="/process" class="controller.actions.admin.backstage.ProcessingAction" />
-    <action name="abood"  url="/logout" class="controller.actions.user.LogoutAction" />
-    <action name="signup"  url="/signup" class="controller.actions.user.SignUpAction" />
-    <action name="/login"  url="/login" class="controller.actions.user.LogInAction" />
-    <action name="/showArticles"  url="/showArticles" class="controller.actions.user.ShowArticlesAction" />
-    <action name="/admin/add-user"  url="/admin/add-user" class="controller.actions.admin.users.AddUserAction" />
-    <action name="/admin/delete-user"  url="/admin/delete-user" class="controller.actions.admin.users.DeleteUserAction" />
+    <action name="UploadFile"  url="/uploadFile" class="controller.actions.admin.backstage.UploadFileAction" />
+    <action name="ShowHome"  url="/" class="controller.actions.user.ShowHomeAction" />
+    <action name="ProcessFile"  url="/process" class="controller.actions.admin.backstage.ProcessingAction" />
+    <action name="UserLogOut"  url="/logout" class="controller.actions.user.LogoutAction" />
+    <action name="UserSignUp"  url="/signup" class="controller.actions.user.SignUpAction" />
+    <action name="UserLogin"  url="/login" class="controller.actions.user.LogInAction" />
+    <action name="showArticles"  url="/showArticles" class="controller.actions.user.ShowArticlesAction" />
+    <action name="admin/add-user"  url="/admin/add-user" class="controller.actions.admin.users.AddUserAction" />
+    <action name="admin/delete-user"  url="/admin/delete-user" class="controller.actions.admin.users.DeleteUserAction" />
     <action name="/admin/list-users"  url="/admin/list-users" class="controller.actions.admin.users.ShowUsersAction" />
     <action name="/admin/list-users"  url="/admin/list-users" class="controller.actions.admin.users.ShowUsersAction" />
-    <action name="/admin"  url="/admin" class="controller.actions.access.AdminLogInAction" />
+    <action name="/admin"  url="/admin" class="controller.actions.admin.access.AdminLogInAction" />
+    <action name="/admin/logout"  url="/admin/logout" class="controller.actions.admin.access.AdminLogOutAction" />
     <action name="/admin/users"  url="/admin/users" class="controller.actions.admin.users.ShowHomeUsersAction" />
     <action name="/admin/users/showUsers"  url="/admin/users/showUsers" class="controller.actions.admin.users.ShowUsersAction" />
     <action name="/admin/users/addUser"  url="/admin/users/addUser" class="controller.actions.admin.users.AddUserAction" />

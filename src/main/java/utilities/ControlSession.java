@@ -19,5 +19,4 @@ public final class ControlSession {
         session.removeAttribute("name");
         session.invalidate();
     }
-
 }

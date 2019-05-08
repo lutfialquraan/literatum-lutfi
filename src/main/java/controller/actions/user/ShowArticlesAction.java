@@ -25,9 +25,9 @@ public class ShowArticlesAction implements IAction {
         List<ContentMeta> meta = (List<ContentMeta>) (List<?>) contentMetaDAO.selectAll();
 
         HttpSession session = request.getSession();
-        session.setAttribute("meta",meta);
+        session.setAttribute("meta", meta);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("jsp/user/home-logged-in.jsp");
-        dispatcher.forward(request,response);
+        dispatcher.forward(request, response);
     }
 }

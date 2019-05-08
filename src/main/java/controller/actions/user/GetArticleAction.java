@@ -21,8 +21,7 @@ public class GetArticleAction implements IAction {
         StringBuilder html = new StringBuilder();
 
         Scanner scanner = new Scanner(new File(htmlPath));
-        while (scanner.hasNext())
-        {
+        while (scanner.hasNext()) {
             html.append(scanner.nextLine());
         }
 
@@ -30,15 +29,15 @@ public class GetArticleAction implements IAction {
         System.out.println(html.toString());
 
         HttpSession session = request.getSession();
-        session.setAttribute("pdf",pdf);
-        session.setAttribute("html",html.toString());
+        session.setAttribute("pdf", pdf);
+        session.setAttribute("html", html.toString());
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("jsp/user/get-article.jsp");
-        dispatcher.forward(request,response);
+        dispatcher.forward(request, response);
     }
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        doPost(request,response);
+        doPost(request, response);
     }
 }
