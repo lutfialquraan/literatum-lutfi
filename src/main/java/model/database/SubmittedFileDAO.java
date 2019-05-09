@@ -76,7 +76,7 @@ public class SubmittedFileDAO extends DAO {
         int file_id = (int) object;
         ResultSet myRes = null;
         try {
-            String sql = "select * from user_table where file_id = ?";
+            String sql = "select * from unprocessed_file where file_id = ?";
             myStat = connectionPool.getConnection().prepareStatement(sql);
             myStat.setInt(1, file_id);
             myRes = myStat.executeQuery();

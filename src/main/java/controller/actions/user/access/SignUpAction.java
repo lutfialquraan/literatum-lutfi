@@ -1,4 +1,4 @@
-package controller.actions.user;
+package controller.actions.user.access;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
 import controller.actions.IAction;

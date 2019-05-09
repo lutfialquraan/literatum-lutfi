@@ -13,16 +13,16 @@
                 <a class="nav-link" href="/admin/showLicense">Show Licensees<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="admin/addLicense">Add License</a>
+                <a class="nav-link" href="/admin/addLicense">Add License</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="admin/deleteLicense">Delete License</a>
+                <a class="nav-link" href="/admin/deleteLicense">Delete License</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="admin/updateLicense">Update License</a>
+                <a class="nav-link" href="/admin/updateLicense">Update License</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="admin/findLicense">Find License</a>
+                <a class="nav-link" href="/admin/findLicense">Find License</a>
             </li>
         </ul>
         <ul class="navbar-nav ml-auto">

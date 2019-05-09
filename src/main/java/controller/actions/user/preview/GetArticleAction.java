@@ -1,4 +1,4 @@
-package controller.actions.user;
+package controller.actions.user.preview;
 
 import controller.actions.IAction;
 import utilities.AccessControl;
@@ -15,7 +15,7 @@ public class GetArticleAction implements IAction {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-        if (AccessControl.isLoggedIn(request)) {
+        if (AccessControl.isLoggedIn(request) && AccessControl.hasLicense(request) ) {
             String doi = request.getParameter("doi");
             String htmlPath = DirectoryPaths.CONTENTS_FILE_PATH + doi + ".html";
             String pdf = DirectoryPaths.CONTENTS_FILE_PATH + doi + ".pdf";

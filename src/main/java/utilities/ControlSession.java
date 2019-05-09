@@ -14,12 +14,14 @@ public final class ControlSession {
         HttpSession session = request.getSession();
         session.setAttribute("role",baseUser.getRole());
         session.setAttribute("name", baseUser.getFirstName());
+        session.setAttribute("email",baseUser.getEmail());
     }
 
     public static void deleteSession(HttpServletRequest request) {
         HttpSession session = request.getSession(false);
         session.removeAttribute("name");
         session.removeAttribute("role");
+        session.removeAttribute("email");
         session.invalidate();
     }
 }

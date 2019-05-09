@@ -1,4 +1,4 @@
-package controller.actions.user;
+package controller.actions.user.preview;
 
 import controller.actions.IAction;
 

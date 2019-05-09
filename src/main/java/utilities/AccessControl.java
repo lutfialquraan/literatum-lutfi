@@ -1,10 +1,14 @@
 package utilities;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
+import model.database.DAO;
+import model.database.LicenseDAO;
 import model.enums.Role;
+import model.license.License;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.time.LocalDate;
 
 
 public final class AccessControl {
@@ -47,6 +51,27 @@ public final class AccessControl {
         {
           allowed = true;
         }
+        return allowed;
+    }
+
+    public static boolean hasLicense (HttpServletRequest request)
+    {
+        boolean allowed = false;
+        HttpSession session = request.getSession();
+        String email = (String) session.getAttribute("email");
+        if (email!=null)
+        {
+            DAO licenseDAO = new LicenseDAO();
+            License license = (License) licenseDAO.select(email);
+            LocalDate today = LocalDate.now();
+            LocalDate expiry = license.getDate();
+
+            if (expiry.compareTo(today)>0)
+            {
+                allowed = true;
+            }
+        }
+
         return allowed;
     }
 }

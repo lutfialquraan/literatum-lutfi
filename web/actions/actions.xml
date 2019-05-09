@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <actions>
-    <action name="getArticle"  url="/getArticle" class="controller.actions.user.GetArticleAction" />
-    <action name="showHome"  url="/home" class="controller.actions.user.ShowHomeAction" />
+    <action name="getArticle"  url="/getArticle" class="controller.actions.user.preview.GetArticleAction" />
+    <action name="showHome"  url="/home" class="controller.actions.user.preview.ShowHomeAction" />
     <action name="UploadFile"  url="/uploadFile" class="controller.actions.admin.backstage.UploadFileAction" />
-    <action name="ShowHome"  url="/" class="controller.actions.user.ShowHomeAction" />
+    <action name="ShowHome"  url="/" class="controller.actions.user.preview.ShowHomeAction" />
     <action name="ProcessFile"  url="/process" class="controller.actions.admin.backstage.ProcessingAction" />
-    <action name="UserLogOut"  url="/logout" class="controller.actions.user.LogoutAction" />
-    <action name="UserSignUp"  url="/signup" class="controller.actions.user.SignUpAction" />
-    <action name="UserLogin"  url="/login" class="controller.actions.user.LogInAction" />
-    <action name="showArticles"  url="/showArticles" class="controller.actions.user.ShowArticlesAction" />
+    <action name="UserLogOut"  url="/logout" class="controller.actions.user.access.LogoutAction" />
+    <action name="UserSignUp"  url="/signup" class="controller.actions.user.access.SignUpAction" />
+    <action name="UserLogin"  url="/login" class="controller.actions.user.access.LogInAction" />
+    <action name="showArticles"  url="/showArticles" class="controller.actions.user.preview.ShowArticlesAction" />
     <action name="admin/add-user"  url="/admin/add-user" class="controller.actions.admin.users.AddUserAction" />
     <action name="admin/delete-user"  url="/admin/delete-user" class="controller.actions.admin.users.DeleteUserAction" />
     <action name="/admin/list-users"  url="/admin/list-users" class="controller.actions.admin.users.ShowUsersAction" />
@@ -31,4 +31,8 @@
     <action name="/admin/deleteContent"  url="/admin/deleteContent" class="controller.actions.admin.contents.DeleteContentAction" />
     <action name="/admin/updateContent"  url="/admin/updateContent" class="controller.actions.admin.contents.ShowHomeContentAction" />
     <action name="/admin/findContent"  url="/admin/findContent" class="controller.actions.admin.contents.ShowHomeContentAction" />
+    <action name="/admin/license"  url="/admin/license" class="controller.actions.admin.license.ShowHomeLicenseAction" />
+    <action name="/admin/showLicense"  url="/admin/showLicense" class="controller.actions.admin.license.ShowLicensesAction" />
+    <action name="/admin/addLicense"  url="/admin/addLicense" class="controller.actions.admin.users.AddLicenseAction" />
+
 </actions>

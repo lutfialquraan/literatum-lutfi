@@ -1,4 +1,4 @@
-package controller.actions.user;
+package controller.actions.user.access;
 
 import controller.actions.IAction;
 import model.database.DAO;

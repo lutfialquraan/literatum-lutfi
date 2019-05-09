@@ -1,0 +1,23 @@
+create table license
+(
+	id int not null,
+	email varchar not null,
+	license varchar
+);
+
+create unique index license_id_uindex
+	on license (id);
+
+alter table license_table
+	add constraint license_pk
+		primary key (id);
+
+create sequence license_id_seq;
+
+alter table license_table alter column id set default nextval('public.license_id_seq');
+
+alter sequence license_id_seq owned by license.id;
+
+alter table license_table alter column license type date using license::date;
+
+
