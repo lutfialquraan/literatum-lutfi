@@ -19,7 +19,10 @@ public class UnZip {
             ze = zis.getNextEntry();
             while (ze != null) {
                 String fileName = ze.getName();
-                File newFile = new File(outputFolder + File.separator + fileName);
+                File newFile = new File(outputFolder,fileName);
+                if (!newFile.toPath().normalize().startsWith(outputFolder)) {
+                    throw new IOException("Bad zip entry");
+                }
                 System.out.println("file unzip : " + newFile.getAbsoluteFile());
                 //create all non exists folders
                 //else you will hit FileNotFoundException for compressed folder
